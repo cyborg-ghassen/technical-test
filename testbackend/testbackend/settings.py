@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -57,6 +59,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'testbackend.urls'
+AUTH_USER_MODEL = "accounts.User"
 
 TEMPLATES = [
     {
