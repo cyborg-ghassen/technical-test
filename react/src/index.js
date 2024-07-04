@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import Main from "./Main";
 import 'helpers/initFA';
+import {router} from "./routes";
+import {RouterProvider} from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
       <Main>
-          <App />
+          <RouterProvider router={router}/>
       </Main>
   </React.StrictMode>
 );

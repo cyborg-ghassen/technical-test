@@ -1,8 +1,8 @@
-import React, { useReducer } from 'react';
+import React, {useReducer} from 'react';
 import PropTypes from 'prop-types';
 import AppContext from 'context/Context';
 import { settings } from './config';
-import { getColor, getItemFromStore } from 'helpers/utils';
+import { getItemFromStore } from 'helpers/utils';
 import { configReducer } from './reducers/configReducer';
 import useToggleStyle from './hooks/useToggleStyle';
 
@@ -74,7 +74,6 @@ const Main = props => {
           right: 0,
           bottom: 0,
           left: 0,
-          backgroundColor: config.isDark ? getColor('dark') : getColor('light')
         }}
       />
     );

@@ -1,13 +1,10 @@
-import {BrowserRouter as Router} from "react-router-dom";
-import AppRoutes from "./routes";
+import {Outlet} from "react-router-dom";
 
 
 function App() {
     return (
         <div>
-            <Router basename={process.env.PUBLIC_URL}>
-                <AppRoutes />
-            </Router>
+            <Outlet/>
         </div>
     );
 }
