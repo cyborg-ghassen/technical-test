@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'accounts',
-    'post'
+    'post',
+    'file',
+    'utils'
 ]
 
 MIDDLEWARE = [
@@ -122,7 +124,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+USE_OSS = os.environ.get('USE_OSS') == 'on'
+if USE_OSS:
+    # oss settings
+    OSS_BUCKET_NAME = os.environ.get('OSS_BUCKET_NAME')
+    OSS_DEFAULT_ACL = None
+    OSS_ENDPOINT = f'oss-us-west-1.aliyuncs.com'
+    # s3 static settings
+    STATIC_LOCATION = 'static'
+    STATIC_URL = f'https://{OSS_ENDPOINT}/{STATIC_LOCATION}/'
+    STATICFILES_STORAGE = 'utils.oss.StaticStorage'
+    # s3 public media settings
+    PUBLIC_MEDIA_LOCATION = 'media'
+    MEDIA_URL = f'https://{OSS_ENDPOINT}/{PUBLIC_MEDIA_LOCATION}/'
+    DEFAULT_FILE_STORAGE = 'utils.oss.PublicMediaStorage'
+    # s3 private media settings
+    PRIVATE_MEDIA_LOCATION = 'private'
+    PRIVATE_FILE_STORAGE = 'utils.oss.PrivateMediaStorage'
+else:
+    STATIC_URL = 'static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

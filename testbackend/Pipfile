@@ -11,6 +11,12 @@ python-dotenv = "*"
 coreapi = "*"
 django-filter = "*"
 django-cors-headers = "*"
+langchain = "*"
+groq = "*"
+langchain-core = "*"
+langchain-groq = "*"
+streamlit = "*"
+pandas = "*"
 
 [dev-packages]
 

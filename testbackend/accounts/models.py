@@ -22,7 +22,6 @@ class UserManager(BaseUserManager):
 
         user_obj.set_password(password)
         user_obj.save(using=self._db)
-        user_obj.emailaddress_set.get_or_create(email=email, user=user_obj, primary=True)
 
         return user_obj
 
