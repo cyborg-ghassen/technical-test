@@ -2,7 +2,7 @@
 
 ## Installation
 
-Use the package manager [pipenv](https://pypi.org/project/pipenv/) to install foobar.
+Use the package manager [pipenv](https://pypi.org/project/pipenv/) to install pipenv.
 
 ```bash
 pip install pipenv
