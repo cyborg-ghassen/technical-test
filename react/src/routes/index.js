@@ -4,6 +4,7 @@ import App from "../App";
 import MainLayout from "../layouts/MainLayout";
 import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/authentication/Login";
+import Home from "../pages/home/Home";
 
 const routes = [
     {
@@ -14,7 +15,8 @@ const routes = [
                 element: <MainLayout/>,
                 children: [
                     {
-                        path: "/home",
+                        path: "/",
+                        element: <Home />
                     }
                 ]
             },
