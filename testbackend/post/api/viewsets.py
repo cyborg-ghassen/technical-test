@@ -5,6 +5,6 @@ from post.models import Post
 
 
 class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
+    queryset = Post.objects.order_by('-created_at')
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
